@@ -1,6 +1,6 @@
 import React from "react";
 
-function VachanaCard({ vachana, onNext, onFavorite }) {
+function VachanaCard({ vachana, onNext, onFavorite, onUnFavorite }) {
   return (
     <>
       <div className="flex flex-col items-center justify-center p-6 bg-white shadow-lg rounded-lg text-center">
@@ -17,6 +17,12 @@ function VachanaCard({ vachana, onNext, onFavorite }) {
             className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
           >
             Favorite
+          </button>
+          <button
+            onClick={onUnFavorite}
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+          >
+            UnFavorite
           </button>
         </div>
       </div>

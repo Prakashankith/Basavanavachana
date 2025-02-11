@@ -1,7 +1,10 @@
 import React from "react";
+import FavoriteList from "../Components/FavoriteList";
 
-function Favorites() {
-  return <div>Favorites</div>;
+export default function Favorites({ favorites, onUnfavorite }) {
+  return (
+    <div className="h-screen bg-blue-100">
+      <FavoriteList favorites={favorites} onUnfavorite={onUnfavorite} />
+    </div>
+  );
 }
-
-export default Favorites;
