@@ -19,3 +19,4 @@ export default function Home({ onFavorite }) {
     </div>
   );
 }
+x`x`;
