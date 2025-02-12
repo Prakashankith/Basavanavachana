@@ -8,11 +8,14 @@ export default function FavoriteList({ favorites, onUnfavorite }) {
         <p className="text-gray-500">No favorites yet.</p>
       ) : (
         <ul className="space-y-2">
-          {favorites.map((vachana, index) => (
-            <li key={index} className="p-4 bg-gray-100 rounded-lg shadow-sm">
-              <span>{vachana}</span>
+          {favorites.map((vachana) => (
+            <li
+              key={vachana.id}
+              className="p-4 bg-gray-100 rounded-lg shadow-sm"
+            >
+              <span>{vachana.text}</span>
               <button
-                onClick={() => onUnfavorite(vachana)}
+                onClick={() => onUnfavorite(vachana.id)}
                 className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
               >
                 UnFavorite

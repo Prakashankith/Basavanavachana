@@ -4,7 +4,7 @@ function VachanaCard({ vachana, onNext, onFavorite, onUnFavorite }) {
   return (
     <>
       <div className="flex flex-col items-center justify-center p-6 bg-white shadow-lg rounded-lg text-center">
-        <p className="text-lg font-semibold mb-4">{vachana}</p>
+        <p className="text-lg font-semibold mb-4">{vachana.text}</p>
         <div className="flex gap-4 mt-4">
           <button
             onClick={onNext}

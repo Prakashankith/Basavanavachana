@@ -1,20 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import { vachanas } from "./data/vachanas";
 
 function App() {
-  const [favorites, setFavorites] = useState([]);
+  const [favoriteIds, setFavoriteIds] = useState([]);
 
-  const addToFavorites = (vachana) => {
-    if (!favorites.includes(vachana)) {
-      setFavorites([...favorites, vachana]);
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    console.log("loaded from localstorage:", storedFavorites);
+    setFavoriteIds(storedFavorites);
+  }, []);
+
+  // !Save favorites to local storage when updated
+  useEffect(() => {
+    console.log("saving to loacalStorage", favoriteIds);
+    localStorage.setItem("favorites", JSON.stringify(favoriteIds));
+  }, [favoriteIds]);
+
+  // !Add to favorites
+
+  const addToFavorites = (id) => {
+    if (!favoriteIds.includes(id)) {
+      setFavoriteIds([...favoriteIds, id]);
+      setFavoriteIds(updatedFavorites);
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     }
   };
 
-  const removeFromFavorites = (vachana) => {
-    setFavorites(favorites.filter((fav) => fav !== vachana));
+  // !Remove from favorites
+
+  const removeFromFavorites = (id) => {
+    setFavoriteIds(favoriteIds.filter((favId) => favId !== id));
   };
+
+  // !Get favorite vachanas by filtering the full list
+  const favoritesVachanas = vachanas.filter((v) => favoriteIds.includes(v.id));
 
   return (
     <Router>
@@ -32,7 +54,7 @@ function App() {
           path="/favorites"
           element={
             <Favorites
-              favorites={favorites}
+              favorites={favoritesVachanas}
               onUnfavorite={removeFromFavorites}
             />
           }

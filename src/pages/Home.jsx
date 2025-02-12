@@ -14,7 +14,7 @@ export default function Home({ onFavorite }) {
       <VachanaCard
         vachana={vachanas[index]}
         onNext={nextVachana}
-        onFavorite={() => onFavorite(vachanas[index])}
+        onFavorite={() => onFavorite(vachanas[index].id)}
       />
     </div>
   );
