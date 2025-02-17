@@ -5,7 +5,7 @@ export const vachanas = [{
 
 }, {
     id: 2,
-    text: "Work is worship. If you don’t work, you can’t worship."
+    text: "Work is worship. If you don not  work, you can not worship."
 
 
 },
