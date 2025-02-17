@@ -10,7 +10,7 @@ export default function Home({ onFavorite }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-blue-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50">
       <VachanaCard
         vachana={vachanas[index]}
         onNext={nextVachana}

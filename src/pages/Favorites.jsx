@@ -3,7 +3,7 @@ import FavoriteList from "../Components/FavoriteList";
 
 export default function Favorites({ favorites, onUnfavorite }) {
   return (
-    <div className="h-screen bg-blue-100">
+    <div className="min-h-screen bg-blue-50">
       <FavoriteList favorites={favorites} onUnfavorite={onUnfavorite} />
     </div>
   );

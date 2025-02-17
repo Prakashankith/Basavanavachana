@@ -2,21 +2,23 @@ import React from "react";
 
 export default function FavoriteList({ favorites, onUnfavorite }) {
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Favorite Vachanas</h2>
+    <div className="container">
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        Favorite Vachanas
+      </h2>
       {favorites.length === 0 ? (
-        <p className="text-gray-500">No favorites yet.</p>
+        <p className="text-gray-500 text-center">No favorites yet.</p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-4">
           {favorites.map((vachana) => (
             <li
               key={vachana.id}
-              className="p-4 bg-gray-100 rounded-lg shadow-sm"
+              className="flex justify-between items-center p-4 bg-white shadow rounded-lg transition-transform duration-300 hover:scale-105"
             >
-              <span>{vachana.text}</span>
+              <span className="text-gray-800">{vachana.text}</span>
               <button
                 onClick={() => onUnfavorite(vachana.id)}
-                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
               >
                 UnFavorite
               </button>

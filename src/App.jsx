@@ -24,15 +24,17 @@ function App() {
   const addToFavorites = (id) => {
     if (!favoriteIds.includes(id)) {
       setFavoriteIds([...favoriteIds, id]);
-      setFavoriteIds(updatedFavorites);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      // setFavoriteIds(updatedFavorites);
+      // localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     }
   };
 
   // !Remove from favorites
 
   const removeFromFavorites = (id) => {
-    setFavoriteIds(favoriteIds.filter((favId) => favId !== id));
+    const updatedFavorites = favoriteIds.filter((favId) => favId !== id);
+    setFavoriteIds(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   // !Get favorite vachanas by filtering the full list
@@ -40,11 +42,17 @@ function App() {
 
   return (
     <Router>
-      <nav className="p-4 bg-blue-600 text-white flex justify-between">
-        <Link to="/" className="font-bold">
+      <nav className="p-4 bg-blue-600 text-white flex justify-between items-center">
+        <Link
+          to="/"
+          className="text-xl font-bold hover:text-gray-200 transition"
+        >
           Home
         </Link>
-        <Link to="/favorites" className="font-bold">
+        <Link
+          to="/favorites"
+          className="text-xl font-bold hover:text-gray-200 transition"
+        >
           Favorites
         </Link>
       </nav>
